@@ -111,7 +111,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Parquet2",
+						"referenceName": "Parquet1",
 						"type": "DatasetReference"
 					}
 				]
