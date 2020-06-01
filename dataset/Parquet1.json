@@ -10,11 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "ddd",
-				"folderPath": {
-					"value": "ddd",
-					"type": "Expression"
-				},
 				"fileSystem": "perth"
 			},
 			"compressionCodec": "snappy"
