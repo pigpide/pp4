@@ -1,0 +1,122 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "ADMIN.CUSTOMERS"
+					},
+					{
+						"name": "Destination",
+						"value": "perth/test/test"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CUSTOMERNAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERNAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CONTACTNAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CONTACTNAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDRESS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTALCODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "POSTALCODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COUNTRY",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OracleTable1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
