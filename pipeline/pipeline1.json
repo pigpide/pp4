@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copydata",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,7 +20,7 @@
 					},
 					{
 						"name": "Destination",
-						"value": "perth/test/test"
+						"value": "perth//"
 					}
 				],
 				"typeProperties": {
@@ -32,7 +32,8 @@
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
 						}
 					},
 					"enableStaging": false,
@@ -110,7 +111,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Parquet1",
+						"referenceName": "Parquet2",
 						"type": "DatasetReference"
 					}
 				]
